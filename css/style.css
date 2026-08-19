@@ -434,7 +434,7 @@ body.preloading {
   display: grid;
   grid-template-columns: 360px 1fr;
   grid-template-areas:
-    "photo title"
+    "title title"
     "photo content";
   align-items: start;
   column-gap: clamp(40px, 6vw, 90px);
@@ -459,7 +459,6 @@ body.preloading {
 
 .about-title {
   grid-area: title;
-  align-self: end;
   justify-self: center;
 }
 
@@ -471,7 +470,7 @@ body.preloading {
 .about-title {
   position: relative;
   display: inline-block;
-  margin: 0 0 32px;
+  margin: 0 0 48px;
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(38px, 5vw, 64px);
@@ -486,8 +485,8 @@ body.preloading {
 .about-title::after {
   content: "";
   position: absolute;
-  left: 2%;
-  right: 30%;
+  left: 6%;
+  right: 6%;
   bottom: -14px;
   height: 9px;
   background: var(--white);
