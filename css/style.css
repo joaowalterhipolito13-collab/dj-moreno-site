@@ -460,6 +460,7 @@ body.preloading {
 .about-title {
   grid-area: title;
   align-self: end;
+  justify-self: center;
 }
 
 .about-content {
@@ -478,6 +479,7 @@ body.preloading {
   color: var(--white);
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-align: center;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7);
 }
 
