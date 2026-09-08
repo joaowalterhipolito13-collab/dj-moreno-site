@@ -81,22 +81,32 @@ if (revealEls.length) {
   revealEls.forEach((el) => revealObserver.observe(el));
 }
 
-const testimonialPile = document.getElementById("testimonialPile");
+const pileCards = document.querySelectorAll(".testimonial-pile__card");
 
-if (testimonialPile) {
-  const pileObserver = new IntersectionObserver(
+if (pileCards.length) {
+  const groupSize = 3;
+  const groups = [];
+  for (let i = 0; i < pileCards.length; i += groupSize) {
+    groups.push(Array.from(pileCards).slice(i, i + groupSize));
+  }
+
+  const groupObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          testimonialPile.classList.add("is-visible");
-          pileObserver.unobserve(entry.target);
+          const group = groups.find((g) => g.includes(entry.target));
+          group.forEach((card) => card.classList.add("is-visible"));
+          groupObserver.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
+    { threshold: 0.2, rootMargin: "0px 0px -15% 0px" }
   );
 
-  pileObserver.observe(testimonialPile);
+  groups.forEach((group) => {
+    const anchor = group[Math.floor(group.length / 2)];
+    groupObserver.observe(anchor);
+  });
 }
 
 const heroCanvas = document.getElementById("heroParticles");
