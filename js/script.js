@@ -81,6 +81,24 @@ if (revealEls.length) {
   revealEls.forEach((el) => revealObserver.observe(el));
 }
 
+const testimonialPile = document.getElementById("testimonialPile");
+
+if (testimonialPile) {
+  const pileObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          testimonialPile.classList.add("is-visible");
+          pileObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
+  );
+
+  pileObserver.observe(testimonialPile);
+}
+
 const heroCanvas = document.getElementById("heroParticles");
 
 if (heroCanvas && !reduceMotion) {
