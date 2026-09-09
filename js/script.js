@@ -1,3 +1,5 @@
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 const footerYear = document.getElementById("footerYear");
 if (footerYear) {
   footerYear.textContent = new Date().getFullYear();
@@ -45,6 +47,33 @@ mainNav.querySelectorAll(".nav-link").forEach((link) => {
 
 document.querySelectorAll(".faq-item").forEach((item) => {
   const question = item.querySelector(".faq-question");
+  const answer = item.querySelector(".faq-answer p");
+  const fullText = answer.textContent;
+  let typingTimer = null;
+
+  function typeAnswer() {
+    if (reduceMotion) {
+      answer.textContent = fullText;
+      return;
+    }
+
+    clearInterval(typingTimer);
+    answer.textContent = "";
+    answer.classList.add("is-typing");
+
+    const charsPerTick = Math.max(1, Math.ceil(fullText.length / 120));
+    let i = 0;
+
+    typingTimer = setInterval(() => {
+      i += charsPerTick;
+      answer.textContent = fullText.slice(0, i);
+
+      if (i >= fullText.length) {
+        clearInterval(typingTimer);
+        answer.classList.remove("is-typing");
+      }
+    }, 15);
+  }
 
   question.addEventListener("click", () => {
     const isOpen = item.classList.contains("is-open");
@@ -57,11 +86,14 @@ document.querySelectorAll(".faq-item").forEach((item) => {
     if (!isOpen) {
       item.classList.add("is-open");
       question.setAttribute("aria-expanded", "true");
+      typeAnswer();
     }
   });
-});
 
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (item.classList.contains("is-open")) {
+    typeAnswer();
+  }
+});
 
 const revealEls = document.querySelectorAll("[data-reveal]");
 

@@ -652,6 +652,21 @@ body.preloading {
   color: rgba(247, 245, 239, 0.85);
 }
 
+.faq-answer p.is-typing::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 3px;
+  background: var(--gold);
+  vertical-align: text-bottom;
+  animation: faq-cursor-blink 0.8s steps(1) infinite;
+}
+
+@keyframes faq-cursor-blink {
+  50% { opacity: 0; }
+}
+
 /* ============================================
    Portfólio ("Onde já toquei")
    ============================================ */
@@ -688,11 +703,14 @@ body.preloading {
 }
 
 .portfolio-card__photo {
+  display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
   border: 2px solid var(--gold);
   border-radius: 2px;
   background: rgba(255, 255, 255, 0.02);
+  object-fit: cover;
+  object-position: center 35%;
 }
 
 .portfolio-card__caption {
