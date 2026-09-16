@@ -26,6 +26,7 @@
     <a href="#inicio" class="nav-link active">Início</a>
     <a href="#sets" class="nav-link">Sets</a>
     <a href="#sobre" class="nav-link">Sobre</a>
+    <a href="#galeria" class="nav-link">Galeria</a>
     <a href="#faq" class="nav-link">FAQ</a>
     <a href="#contato" class="nav-link">Contato</a>
   </nav>
@@ -115,6 +116,48 @@
     </div>
   </section>
 
+  <section id="galeria" class="gallery">
+    <div class="gallery-eyebrow" data-reveal>
+      <span>Galeria</span>
+      <svg class="gallery-eyebrow__pulse" viewBox="0 0 220 20" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 10 H80 L92 10 L100 1 L108 19 L116 10 L128 10 H220" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <h2 class="gallery-title" data-reveal>Momentos no palco</h2>
+    <p class="gallery-subtitle" data-reveal>Um pouco da energia de cada evento</p>
+
+    <div class="gallery-grid">
+      <button type="button" class="gallery-item" data-reveal data-index="0">
+        <img src="assets/galeria/galeria-01.jpg" alt="Moreno tocando em evento indoor, apontando para o público" loading="lazy">
+      </button>
+      <button type="button" class="gallery-item" data-reveal data-index="1">
+        <img src="assets/galeria/galeria-02.jpg" alt="Moreno tocando em festival ao ar livre durante o dia" loading="lazy">
+      </button>
+      <button type="button" class="gallery-item" data-reveal data-index="2">
+        <img src="assets/galeria/galeria-03.jpg" alt="Moreno cantando no microfone durante o pôr do sol" loading="lazy">
+      </button>
+      <button type="button" class="gallery-item" data-reveal data-index="3">
+        <img src="assets/galeria/galeria-04.jpg" alt="Moreno tocando em balada à noite com pista cheia" loading="lazy">
+      </button>
+      <button type="button" class="gallery-item" data-reveal data-index="4">
+        <img src="assets/galeria/galeria-05.jpg" alt="Moreno de camiseta com sua marca em pista de dança lotada" loading="lazy">
+      </button>
+      <button type="button" class="gallery-item" data-reveal data-index="5">
+        <img src="assets/galeria/galeria-06.jpg" alt="Moreno tocando sob luzes de laser coloridas" loading="lazy">
+      </button>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-lightbox-close></div>
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Fechar galeria">&times;</button>
+    <button type="button" class="lightbox-arrow lightbox-arrow--prev" id="lightboxPrev" aria-label="Foto anterior">&#8249;</button>
+    <figure class="lightbox-figure">
+      <img src="" alt="" id="lightboxImage">
+    </figure>
+    <button type="button" class="lightbox-arrow lightbox-arrow--next" id="lightboxNext" aria-label="Próxima foto">&#8250;</button>
+  </div>
+
   <section id="avaliacoes" class="testimonials">
     <div class="testimonials-eyebrow" data-reveal>
       <span>Avaliações</span>
@@ -181,6 +224,7 @@
       <a href="#inicio">Início</a>
       <a href="#sets">Sets</a>
       <a href="#sobre">Sobre</a>
+      <a href="#galeria">Galeria</a>
       <a href="#faq">FAQ</a>
       <a href="#contato">Contato</a>
     </nav>

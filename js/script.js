@@ -141,6 +141,60 @@ if (pileCards.length) {
   });
 }
 
+const galleryItems = document.querySelectorAll(".gallery-item");
+const lightbox = document.getElementById("lightbox");
+
+if (galleryItems.length && lightbox) {
+  const lightboxImage = document.getElementById("lightboxImage");
+  const lightboxClose = document.getElementById("lightboxClose");
+  const lightboxPrev = document.getElementById("lightboxPrev");
+  const lightboxNext = document.getElementById("lightboxNext");
+  const photos = Array.from(galleryItems).map((item) => {
+    const img = item.querySelector("img");
+    return { src: img.src, alt: img.alt };
+  });
+  let currentIndex = 0;
+
+  function showPhoto(index) {
+    currentIndex = (index + photos.length) % photos.length;
+    const photo = photos[currentIndex];
+    lightboxImage.src = photo.src;
+    lightboxImage.alt = photo.alt;
+  }
+
+  function openLightbox(index) {
+    showPhoto(index);
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("no-scroll");
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("no-scroll");
+  }
+
+  galleryItems.forEach((item, index) => {
+    item.addEventListener("click", () => openLightbox(index));
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightboxPrev.addEventListener("click", () => showPhoto(currentIndex - 1));
+  lightboxNext.addEventListener("click", () => showPhoto(currentIndex + 1));
+
+  lightbox.querySelectorAll("[data-lightbox-close]").forEach((el) => {
+    el.addEventListener("click", closeLightbox);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("is-open")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") showPhoto(currentIndex - 1);
+    if (e.key === "ArrowRight") showPhoto(currentIndex + 1);
+  });
+}
+
 const heroCanvas = document.getElementById("heroParticles");
 
 if (heroCanvas && !reduceMotion) {
