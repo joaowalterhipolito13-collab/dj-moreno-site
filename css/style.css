@@ -225,7 +225,7 @@ body.preloading {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: url("../assets/imagem-hero.png") center center / contain no-repeat;
+  background: url("../assets/imagem-hero.png") center center / cover no-repeat;
 }
 
 .hero::after {
