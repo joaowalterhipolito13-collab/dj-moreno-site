@@ -668,85 +668,6 @@ body.preloading {
 }
 
 /* ============================================
-   Portfólio ("Onde já toquei")
-   ============================================ */
-.portfolio {
-  position: relative;
-  padding: 64px clamp(20px, 6vw, 80px) 64px;
-  text-align: center;
-}
-
-.portfolio-title {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(38px, 5.2vw, 64px);
-  color: var(--white);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transform: rotate(-1.5deg);
-  margin: 0 0 clamp(40px, 6vw, 64px);
-}
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(24px, 3vw, 40px);
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.portfolio-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-}
-
-.portfolio-card__photo {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border: 2px solid var(--gold);
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.02);
-  object-fit: cover;
-  object-position: center 35%;
-}
-
-.portfolio-card__caption {
-  margin: 0;
-  font-family: var(--font-nav);
-  font-weight: 500;
-  font-size: clamp(15px, 1.3vw, 18px);
-  line-height: 1.4;
-  color: var(--white);
-}
-
-.portfolio-cta {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: clamp(40px, 6vw, 64px);
-  padding: 16px 38px;
-  background: rgba(5, 5, 4, 0.72);
-  border: 2px solid var(--gold);
-  font-family: var(--font-display);
-  font-size: clamp(17px, 1.8vw, 22px);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--gold);
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-}
-
-.portfolio-cta:hover,
-.portfolio-cta:focus-visible {
-  background: var(--gold);
-  color: #171308;
-  transform: translateY(-2px);
-}
-
-/* ============================================
    Avaliações (testimonials)
    ============================================ */
 .testimonials {
@@ -1014,11 +935,6 @@ body.preloading {
   transform: translateY(0);
 }
 
-.portfolio-grid[data-reveal] { transition: none; }
-.portfolio-grid .portfolio-card:nth-child(1) { transition-delay: 0s; }
-.portfolio-grid .portfolio-card:nth-child(2) { transition-delay: 0.12s; }
-.portfolio-grid .portfolio-card:nth-child(3) { transition-delay: 0.24s; }
-
 .sets-buttons .sets-btn:nth-child(1) { transition-delay: 0s; }
 .sets-buttons .sets-btn:nth-child(2) { transition-delay: 0.12s; }
 
@@ -1027,24 +943,12 @@ body.preloading {
 /* ============================================
    Hover / motion polish
    ============================================ */
-.portfolio-card__photo {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.portfolio-card:hover .portfolio-card__photo {
-  transform: scale(1.03) rotate(-0.6deg);
-  box-shadow: 0 0 28px rgba(242, 194, 48, 0.35);
-  border-color: var(--white);
-}
-
-.sets-btn,
-.portfolio-cta {
+.sets-btn {
   position: relative;
   overflow: hidden;
 }
 
-.sets-btn::before,
-.portfolio-cta::before {
+.sets-btn::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -1055,8 +959,7 @@ body.preloading {
   pointer-events: none;
 }
 
-.sets-btn:hover::before,
-.portfolio-cta:hover::before {
+.sets-btn:hover::before {
   opacity: 1;
   transform: scale(1);
 }
@@ -1232,11 +1135,6 @@ body.preloading {
     align-self: auto;
     font-size: clamp(22px, 7.2vw, 40px);
     white-space: nowrap;
-  }
-
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    max-width: 320px;
   }
 
   .sets-buttons {
