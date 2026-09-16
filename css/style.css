@@ -1276,22 +1276,22 @@ body.no-scroll {
     text-align: right;
     max-width: 60%;
     margin-left: auto;
-    padding: 76% 6vw 0 0;
+    padding: 63% 6vw 0 0;
   }
 
   .hero-logo {
-    width: clamp(190px, 50vw, 340px);
+    width: clamp(145px, 42vw, 340px);
     filter: brightness(0) invert(1) drop-shadow(0 6px 18px rgba(0, 0, 0, 0.5));
   }
 
   .hero-subtitle {
     font-size: clamp(16px, 4vw, 22px);
-    margin-top: 14px;
+    margin-top: 5px;
   }
 
   .cta-button {
-    width: clamp(190px, 48vw, 280px);
-    margin-top: 26px;
+    width: clamp(145px, 38vw, 280px);
+    margin-top: 6px;
   }
 
   .scroll-cue {
@@ -1420,5 +1420,5 @@ body.no-scroll {
 
 @media (max-width: 480px) {
   .hero-subtitle { font-size: 17px; }
-  .cta-button { width: clamp(190px, 60vw, 240px); }
+  .cta-button { width: clamp(145px, 38vw, 240px); }
 }
