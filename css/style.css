@@ -1271,12 +1271,12 @@ body.no-scroll {
     position: absolute;
     inset: 0;
     z-index: 2;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-end;
     text-align: right;
     max-width: 60%;
     margin-left: auto;
-    padding: 0 6vw 0 0;
+    padding: 64% 6vw 0 0;
   }
 
   .hero-logo {
